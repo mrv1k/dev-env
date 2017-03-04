@@ -2,6 +2,8 @@ import express from 'express';
 import path from 'path';
 import open from 'open';
 
+/* eslint-disable no-console */
+
 const port = 3222;
 const app = express();
 
