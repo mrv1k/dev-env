@@ -1,4 +1,4 @@
-// import './index.css';
+import './index.css';
 import {getUsers, deleteUser} from './api/userApi';
 
 // populate table of users via API call
@@ -6,7 +6,7 @@ getUsers().then(result => {
   let usersBody = "";
   result.forEach(user => {
     usersBody += `<tr>
-    <td><a href="#" data-id="${user.id}" class="deleteUser">NAHOOI S PLYAJA</a></td>
+    <td><a href="#" data-id="${user.id}" class="deleteUser">Be kind and leave</a></td>
     <td>${user.id}</td>
     <td>${user.firstName}</td>
     <td>${user.lastName}</td>
