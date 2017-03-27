@@ -11,7 +11,7 @@
     "lint:watch": "npm run lint -- --watch",
     "localtunnel": "lt --port 3222",
     "share": "npm-run-all --parallel open:src localtunnel",
-    "test" : "mocha --reporter landing buildScripts/testSetup.js \"src/**/*.test.js\" ",
+    "test": "mocha --reporter landing buildScripts/testSetup.js \"src/**/*.test.js\" ",
     "test:watch": "npm run test -- --watch",
     "generate-mock-data": "babel-node buildScripts/generateMockData",
     "prestart-mockapi": "npm run generate-mock-data",
@@ -19,7 +19,8 @@
     "clean-dist": "rm -r ./dist && mkdir dist",
     "prebuild": "npm-run-all clean-dist test lint",
     "build": "babel-node buildScripts/build.js",
-    "postbuild": "babel-node buildScripts/distServer.js"
+    "postbuild": "babel-node buildScripts/distServer.js",
+    "deploy": "surge ./dist"
   },
   "author": "Viktor Khotimchenko",
   "license": "MIT",
@@ -59,6 +60,7 @@
     "webpack": "1.13.2",
     "webpack-dev-middleware": "1.8.4",
     "webpack-hot-middleware": "2.13.0",
-    "webpack-md5-hash": "0.0.5"
+    "webpack-md5-hash": "0.0.5",
+    "surge": "^0.19.0"
   }
 }
