@@ -4,7 +4,7 @@
   "description": "JavaScript development environment Pluralsight course by Cory House, completed by Viktor Khotimchenko",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel security-check open:src lint:watch",
+    "start": "npm-run-all --parallel security-check lint:watch test:watch start-mockapi open:src",
     "open:src": "babel-node buildScripts/srcServer.js",
     "security-check": "nsp check",
     "lint": "esw webpack.config.* src buildScripts --color",
@@ -12,7 +12,10 @@
     "localtunnel": "lt --port 3222",
     "share": "npm-run-all --parallel open:src localtunnel",
     "test" : "mocha --reporter landing buildScripts/testSetup.js \"src/**/*.test.js\" ",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "generate-mock-data": "babel-node buildScripts/generateMockData",
+    "prestart-mockapi": "npm run generate-mock-data",
+    "start-mockapi": "json-server --watch src/api/db.json --port 3221"
   },
   "author": "Viktor Khotimchenko",
   "license": "MIT",
